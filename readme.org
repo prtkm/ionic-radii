@@ -1,0 +1,27 @@
+* About
+
+The Ionic Radii data was obtained from http://abulafia.mt.ic.ac.uk/shannon/ptable.php. We want to make a json file from this data so we can easily obtain the ionic radius for an element with a given charge and coordination. This data might be useful for many things, I use it to obtain radii for input into Zeo++ (http://www.maciejharanczyk.info/Zeopp/). 
+
+The compiled json file can be found at [[./shannon-radii.json]].
+
+The full table and the python script to compile the json file is at [[./compile.org]].
+
+Usage is shown below.
+
+
+#+BEGIN_SRC python
+import json
+with open("shannon-radii.json") as f:
+    out = f.read()
+
+d = json.loads(out)
+
+# Enter Element, Charge, Coordination and one of - r_crystal, r_ionic, spin, remark
+
+print d['Cd']['2']['VII']['r_ionic']
+
+#+END_SRC
+
+#+RESULTS:
+: 1.17
+
